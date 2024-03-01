@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\SocialiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
+Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProvideCallback']);
 
 require __DIR__.'/auth.php';
