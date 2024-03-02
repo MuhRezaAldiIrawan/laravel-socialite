@@ -2,6 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
@@ -43,5 +44,18 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+
+        <div class="flex items-center justify-center mt-4">
+
+            <a href="/auth/google" class="mr-2 inline-block items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-400 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                Login  Google
+            </a>
+            <br>
+            <a href="/auth/github" class="px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-500">
+                Login  GitHub
+            </a>
+        </div>
+
     </form>
 </x-guest-layout>
+
